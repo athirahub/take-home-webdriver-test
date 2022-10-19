@@ -1,5 +1,7 @@
 package com.internet.pages;
 
+import static org.testng.Assert.fail;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -28,6 +30,17 @@ public class LoginPage extends Page {
 	public SecureAreaPage clickSubmitBtn() {
 		((Proxywrapper) driver).submit(login);
 		return new SecureAreaPage(driver, true);
+	}
+	@Override
+	protected void isLoaded() throws Error {
+		if (!urlContains(driver.getCurrentUrl())) {
+			fail("Page didn't load");
+		}
+	}
+
+	@Override
+	public String getPageURL() {
+		return String.format("%s%s", getDomain(), PAGE_URL);
 	}
 
 }

@@ -37,11 +37,11 @@ public class Baseclass {
 			try {
 				prop.load(file);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+				
 				e.printStackTrace();
 			}
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 	}
@@ -50,7 +50,7 @@ public class Baseclass {
 	private static final Browsers DEFAULT_BROWSER = Browsers.GOOGLE_CHROME;
 	
 	public void intialization() {
-		// Manages the driver for the browser on which testing is performed
+		
 		username=prop.getProperty("username");
 		password=prop.getProperty("password");
 		

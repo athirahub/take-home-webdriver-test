@@ -24,16 +24,16 @@ public abstract class GeneralPage extends LoadableComponent<GeneralPage> {
 
 	@Override
 	protected void load() {
-		String pageURL = getPageURL();
-		driver.get(pageURL);
+//		String pageURL = getPageURL();
+//		driver.get(pageURL);
 
 	}
 	@Override
 	public GeneralPage get() {
 
-		GeneralPage page = super.get();
-		this.waitforPageToload();
-		return page;
+//		GeneralPage page = super.get();
+//		this.waitforPageToload();
+	return null;
 	}
 
 	@Override
@@ -59,10 +59,7 @@ public abstract class GeneralPage extends LoadableComponent<GeneralPage> {
 			System.out.println((String.format("Checking URL: Contains: %s; Actual: %s", pageUrl, url)));
 
 			if (pageUrlHost.equalsIgnoreCase(urlHost)) {
-				// Using URL.getPath() did not work with buy flow where URLs
-				// contain a '#' which denotes the 'ref' portion of a URL.
-				// See
-				// https://docs.oracle.com/javase/tutorial/networking/urls/urlInfo.html.
+				
 				String pageUrlExclHost = pageUrl.substring(pageUrl.indexOf(pageUrlHost) + pageUrlHost.length());
 				String urlExclHost = url.substring(url.indexOf(urlHost) + urlHost.length());
 				return urlExclHost.toLowerCase().contains(pageUrlExclHost.toLowerCase());
